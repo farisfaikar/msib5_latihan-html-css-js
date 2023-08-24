@@ -1,0 +1,107 @@
+/* ========== CSS Reset ========== */
+
+*, *::before, *::after { 
+  box-sizing: inherit; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--color-black);
+}
+
+html { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Arial';
+}
+
+body {
+  height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, textarea, button, select {
+  font: inherit;
+}
+
+:root {
+  --color-black: #212121;
+  --color-gray: #444;
+  --color-pine: #2c2d2d;
+  --color-neon: #2cde85;
+  --color-sky-blue-100: #abdce3;
+  --color-sky-blue-200: #92c4cb;
+  --color-white: #fff;
+}
+
+/* =============================== */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  padding-inline: 50px;
+  align-self: flex-end;
+  border-radius: .25rem;
+}
+
+button:hover {
+  background-color: var(--color-gray);
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid var(--color-black);
+  padding: .5rem;
+}
+
+th {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-sky-blue-200);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  gap: .625rem;
+  width: 80%;
+  height: clamp(100%);
+  border-radius: .625rem;
+  background-color: var(--color-sky-blue-100);
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-text-box {
+  width: 70%;
+}
+
+.input-select,
+.input-option {
+  width: 70%;
+}

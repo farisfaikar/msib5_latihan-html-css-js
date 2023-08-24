@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <title>Riwayat Akademik</title>
+</head>
+<body>
+  <div class="card">
+    <h1>Riwayat Akademik</h1>
+    <div class="input">
+      <label for="inputNama">Nama</label>
+      <input class="input-text-box" type="text" name="nama" id="inputNama">
+    </div>
+    <div class="input">
+      <label for="inputMataKuliah">Mata Kuliah</label>
+      <select class="input-select" name="mata_kuliah" id="inputMataKuliah">
+        <option class="input-option" value="Literasi Digital dan Kemanusiaan">Literasi Digital dan Kemanusiaan</option>
+        <option class="input-option" value="Grafika Komputer">Grafika Komputer</option>
+        <option class="input-option" value="Komputer dan Masyarakat">Komputer dan Masyarakat</option>
+        <option class="input-option" value="Kriptografi">Kriptografi</option>
+        <option class="input-option" value="Pemrograman Web">Pemrograman Web</option>
+        <option class="input-option" value="Sistem Informasi Manajemen">Sistem Informasi Manajemen</option>
+        <option class="input-option" value="Teknik Multimedia">Teknik Multimedia</option>
+        <option class="input-option" value="Metodologi Penelitian">Metodologi Penelitian</option>
+      </select>
+    </div>
+    <div class="input">
+      <label for="inputNilai">Nilai</label>
+      <select class="input-select" name="nilai" id="inputNilai">
+        <option class="input-option" value="A">A</option>
+        <option class="input-option" value="AB">AB</option>
+        <option class="input-option" value="B">B</option>
+        <option class="input-option" value="BC">BC</option>
+        <option class="input-option" value="C">C</option>
+        <option class="input-option" value="CD">CD</option>
+        <option class="input-option" value="D">D</option>
+        <option class="input-option" value="E">E</option>
+      </select>
+    </div>
+    <button type="submit" class="tambah">Tambah</button>
+    <table>
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Mata Kuliah</th>
+        <th>Grade</th>
+        <th>Nilai Rata-Rata</th>
+      </tr>
+      <tr id="empty-row">
+        <td colspan="5">Tabel kosong.</td>
+      </tr>
+    </table>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="script.js"></script>
+</html>
