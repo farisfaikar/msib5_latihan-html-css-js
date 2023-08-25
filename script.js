@@ -1,12 +1,17 @@
 $(document).ready(function () {
-    $('.input-select').select2();
+    const addButton = $('#tambah');
+    const tableBody = $('tbody');
+    const resetButton = $('#reset');
+    let rowCount = 0;
 
-    $(".tambah").click(function () {
-        let nama = $("#inputNama").val();
-        let mataKuliah = $("#inputMataKuliah").val();
-        let nilai = $("#inputNilai").val();
+    addButton.click(function () {
+        const namaInput = $('#inputNama');
+        const mataKuliahInput = $('#inputMataKuliah');
+        const nilaiInput = $('#inputNilai');
 
-        let nilaiRataRata = 0;
+        const nama = namaInput.val();
+        const mataKuliah = mataKuliahInput.val();
+        const nilai = nilaiInput.val();
 
         if (nilai === 'A') {
             nilaiRataRata = 4;
@@ -24,27 +29,41 @@ $(document).ready(function () {
             nilaiRataRata = 0;
         }
 
-        if ($("#empty-row").length) {
-            $("#empty-row").remove();
+        if (nama && mataKuliah && nilai) {
+            if ($("#empty-row").length) {
+                $("#empty-row").remove();
+            }
+
+            rowCount++;
+            const newRow = $('<tr>');
+            newRow.html(`
+                <td>${rowCount}</td>
+                <td>${nama}</td>
+                <td>${mataKuliah}</td>
+                <td>${nilai}</td>
+                <td>${nilaiRataRata}</td>
+            `)
+
+            tableBody.find('#empty-row').remove();
+            tableBody.append(newRow);
+
+            // Reset kotak input
+            namaInput.val('');
+            mataKuliahInput.val('');
+            nilaiInput.val('');
+        } else {
+            alert("Tolong isi semua form tersebut.");
         }
+    });
 
-        let newRow = $("<tr>");
-        newRow.append("<td></td>");
-        newRow.append("<td>" + nama + "</td>");
-        newRow.append("<td>" + mataKuliah + "</td>");
-        newRow.append("<td>" + nilai + "</td>");
-        newRow.append("<td>" + nilaiRataRata + "</td>");
+    resetButton.click(function () {
+        const namaInput = $('#inputNama');
+        const mataKuliahInput = $('#inputMataKuliah');
+        const nilaiInput = $('#inputNilai');
 
-        $("table").append(newRow);
-
-        updateRowNumbers();
+        // Reset kotak input
+        namaInput.val('');
+        mataKuliahInput.val('');
+        nilaiInput.val('');
     });
 });
-
-function updateRowNumbers() {
-    $("table tr").each(function (index) {
-        if (index > 0) {
-            $(this).find("td:first").text(index);
-        }
-    });
-}

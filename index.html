@@ -3,50 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=JetBrains+Mono:wght@200;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter'],
+            jetbrains: ['JetBrains Mono'],
+          }
+        },
+      },
+    }
+  </script>
   <title>Riwayat Akademik</title>
 </head>
-<body>
-  <div class="card">
-    <h1>Riwayat Akademik</h1>
-    <div class="input">
-      <label for="inputNama">Nama</label>
-      <input class="input-text-box" type="text" name="nama" id="inputNama" required>
+<body class="flex justify-center items-start h-screen bg-slate-900">
+  <div class="w-3/4 max-w-4xl bg-slate-900 mt-16 rounded-md border-slate-800 border-2"> <!-- Card -->
+    <div class="bg-slate-800 p-3 border-slate-800 rounded-t"> <!-- Card Header -->
+      <h1 class="font-bold text-4xl text-slate-100 bg-slate-800">Riwayat Akademik</h1>
     </div>
-    <div class="input">
-      <label for="inputMataKuliah">Mata Kuliah</label>
-      <input class="input-text-box" type="text" name="mata_kuliah" id="inputMataKuliah" required>
+    <div class="p-3"> <!-- Card Body -->
+      <div class="flex justify-between mt-2">
+        <label class="w-1/4 font-medium text-slate-400" for="inputNama">Nama</label>
+        <input id="inputNama" class="pl-1 w-3/4 bg-slate-900 text-slate-100 border-slate-800 border-2 rounded" type="text" name="nama">
+      </div>
+      <div class="flex justify-between mt-2">
+        <label class="w-1/4 font-medium text-slate-400" for="inputMataKuliah">Mata Kuliah</label>
+        <input id="inputMataKuliah" class="pl-1 w-3/4 bg-slate-900 text-slate-100 border-slate-800 border-2 rounded" type="text" name="mata_kuliah">
+      </div>
+      <div class="flex justify-between mt-2">
+        <label class="w-1/4 font-medium text-slate-400" for="inputNama">Mata Kuliah</label>
+        <select id="inputNilai" class="pl-1 w-3/4 bg-slate-900 text-slate-100 border-slate-800 border-2 rounded" type="text" name="nama">
+          <option value="A">A</option>
+          <option value="AB">AB</option>
+          <option value="B">B</option>
+          <option value="BC">BC</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>
+      </div>
+      <div class="flex justify-end">
+        <button id="reset" class="justify-end bg-slate-700 p-2 px-4 mt-2 font-medium rounded-md hover:bg-slate-800 mr-3 type="submit">Reset</button>
+        <button id="tambah" class="justify-end bg-white p-2 px-4 mt-2 font-medium rounded-md hover:bg-slate-400" type="submit">Tambah</button>
+      </div>
+
+      <table class="w-full mt-3 table-auto">
+        <thead class="text-left text-slate-400 border-slate-800 border-y-2">
+          <tr>
+            <th class="font-medium">No.</th>
+            <th class="font-medium">Nama</th>
+            <th class="font-medium">Mata Kuliah</th>
+            <th class="font-medium">Grade</th>
+            <th class="font-medium">Nilai Rata-Rata</th>
+          </tr>
+        </thead>
+        <tbody class="text-left text-slate-100 border-slate-800">
+          <tr id="empty-row">
+            <td class="text-center" colspan="6">Tabel kosong</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="input">
-      <label for="inputNilai">Nilai</label>
-      <select class="input-select" name="nilai" id="inputNilai" required>
-        <option class="input-option" value="A">A</option>
-        <option class="input-option" value="AB">AB</option>
-        <option class="input-option" value="B">B</option>
-        <option class="input-option" value="BC">BC</option>
-        <option class="input-option" value="C">C</option>
-        <option class="input-option" value="CD">CD</option>
-        <option class="input-option" value="D">D</option>
-        <option class="input-option" value="E">E</option>
-      </select>
-    </div>
-    <button type="submit" class="tambah">Tambah</button>
-    <table>
-      <tr>
-        <th>No.</th>
-        <th>Nama</th>
-        <th>Mata Kuliah</th>
-        <th>Grade</th>
-        <th>Nilai Rata-Rata</th>
-      </tr>
-      <tr id="empty-row">
-        <td colspan="5">Tabel kosong.</td>
-      </tr>
-    </table>
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="script.js"></script>
 </html>
