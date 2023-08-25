@@ -42,6 +42,7 @@ $(document).ready(function () {
                 <td>${mataKuliah}</td>
                 <td>${nilai}</td>
                 <td>${nilaiRataRata}</td>
+                <td class="flex justify-between"><button id="edit" class="mx-2 my-1 text-slate-950 bg-slate-700 hover:bg-slate-800 w-1/2 rounded">Edit</button><button id="delete" class="mx-2 my-1 text-slate-950 bg-red-400 hover:bg-red-500 w-1/2 rounded">Delete</button></td>
             `)
 
             tableBody.find('#empty-row').remove();
